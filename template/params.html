@@ -7,10 +7,10 @@
   Set the Frangi parameters:
 </p>
 <ul> 
-  <li> Sigma Min:
+  <li>
  <!-- code for slider -->
                     <div style="float:left;padding-right:25px">
-                    <label for="sigmamin"> <font color=blue><i>sigmamin</i></font>:</label>
+                    <label for="sigmamin"> <font color=blue><i>sigma min</i></font>:</label>
                      <input type="text" style="font-family:monospace;text-align:right"
                         size="3" id="sigmamin" name="scale" value="1.0" />
                     </div>
@@ -25,10 +25,10 @@
                     <!-- end of code for slider -->
   </li>
 
-  <li> Sigma Max: 
+  <li> 
  <!-- code for slider -->
                     <div style="float:left;padding-right:25px">
-                    <label for="sigmamax"> <font color=blue><i>sigmamax</i></font>:</label>
+                    <label for="sigmamax"> <font color=blue><i>sigma max</i></font>:</label>
                      <input type="text" style="font-family:monospace;text-align:right"
                         size="3" id="sigmamax" name="scale" value="5.0" />
                     </div>
@@ -44,7 +44,7 @@
   </li>
 
 
-  <li> Steps: 
+  <li> 
  <!-- code for slider -->
                     <div style="float:left;padding-right:25px">
                     <label for="steps"> <font color=blue><i>steps</i></font>:</label>
@@ -55,7 +55,61 @@
                     <script type="text/javascript">
                     // Turn DIV slider into a slider linked to scale
                     $(document).ready(function() {
-                          createLinkedSlider('#steps', '#steps_slider', 0, 10, 0.1);
+                          createLinkedSlider('#steps', '#steps_slider', 1, 10, 1);
+                    });
+                    </script>
+                    <div style="clear:both"> </div>
+                    <!-- end of code for slider -->
+  </li>
+
+
+  <li> 
+ <!-- code for slider -->
+                    <div style="float:left;padding-right:25px">
+                    <label for="alpha"> <font color=blue><i>alpha</i></font>:</label>
+                     <input type="text" style="font-family:monospace;text-align:right"
+                        size="3" id="alpha" name="scale" value="5.0" />
+                    </div>
+                    <div id="alpha_slider" name="alpha_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+                    <script type="text/javascript">
+                    // Turn DIV slider into a slider linked to scale
+                    $(document).ready(function() {
+                          createLinkedSlider('#alpha', '#alpha_slider', 1, 10, 1);
+                    });
+                    </script>
+                    <div style="clear:both"> </div>
+                    <!-- end of code for slider -->
+  </li>
+  <li> 
+ <!-- code for slider -->
+                    <div style="float:left;padding-right:25px">
+                    <label for="beta"> <font color=blue><i>beta</i></font>:</label>
+                     <input type="text" style="font-family:monospace;text-align:right"
+                        size="3" id="beta" name="scale" value="5.0" />
+                    </div>
+                    <div id="beta_slider" name="beta_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+                    <script type="text/javascript">
+                    // Turn DIV slider into a slider linked to scale
+                    $(document).ready(function() {
+                          createLinkedSlider('#beta', '#beta_slider', 1, 10, 1);
+                    });
+                    </script>
+                    <div style="clear:both"> </div>
+                    <!-- end of code for slider -->
+  </li>
+
+    <li> 
+ <!-- code for slider -->
+                    <div style="float:left;padding-right:25px">
+                    <label for="gamma"> <font color=blue><i>gamma</i></font>:</label>
+                     <input type="text" style="font-family:monospace;text-align:right"
+                        size="3" id="gamma" name="scale" value="5.0" />
+                    </div>
+                    <div id="gamma_slider" name="gamma_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+                    <script type="text/javascript">
+                    // Turn DIV slider into a slider linked to scale
+                    $(document).ready(function() {
+                          createLinkedSlider('#gamma', '#gamma_slider', 1, 10, 1);
                     });
                     </script>
                     <div style="clear:both"> </div>
