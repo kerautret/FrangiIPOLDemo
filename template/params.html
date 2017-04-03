@@ -1,0 +1,26 @@
+<%include file="header-jquery.html" />
+<script type="text/javascript">
+<%include file="js/createlinkedslider.js" />
+</script>
+
+<!--
+<p>
+
+You can first ajust the parameters of the radius used for normal accumulation (<font color="blue"><i>R</i></font>).
+</p>
+-->
+
+<form action="${app.base_url + 'wait'}" method="get">
+  <input type="hidden" name="key" value="${app.key}">
+<div class="action">
+<input type="submit" value="run" />
+</div>
+</form>
+
+<hr />
+
+<div>
+  <img src="${app.work_url + 'input_0.png'}" alt="${}" />
+</div>
+
+<%include file="footer.html" />
