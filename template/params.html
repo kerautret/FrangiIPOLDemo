@@ -7,7 +7,7 @@
   Set the Frangi parameters:
 </p>
 <ul> 
-  <li> Sigma Min: <BR>
+  <li> Sigma Min:
  <!-- code for slider -->
                     <div style="float:left;padding-right:25px">
                     <label for="sigmamin"> <font color=blue><i>sigmamin</i></font>:</label>
@@ -25,12 +25,12 @@
                     <!-- end of code for slider -->
   </li>
 
-  <li> Sigma Max: <BR>
+  <li> Sigma Max: 
  <!-- code for slider -->
                     <div style="float:left;padding-right:25px">
                     <label for="sigmamax"> <font color=blue><i>sigmamax</i></font>:</label>
                      <input type="text" style="font-family:monospace;text-align:right"
-                        size="3" id="sigmamax" name="scale" value="1.0" />
+                        size="3" id="sigmamax" name="scale" value="5.0" />
                     </div>
                     <div id="sigmamax_slider" name="sigmamax_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
                     <script type="text/javascript">
@@ -42,6 +42,27 @@
                     <div style="clear:both"> </div>
                     <!-- end of code for slider -->
   </li>
+
+
+  <li> Steps: 
+ <!-- code for slider -->
+                    <div style="float:left;padding-right:25px">
+                    <label for="steps"> <font color=blue><i>steps</i></font>:</label>
+                     <input type="text" style="font-family:monospace;text-align:right"
+                        size="3" id="steps" name="scale" value="5.0" />
+                    </div>
+                    <div id="steps_slider" name="steps_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+                    <script type="text/javascript">
+                    // Turn DIV slider into a slider linked to scale
+                    $(document).ready(function() {
+                          createLinkedSlider('#steps', '#steps_slider', 0, 10, 0.1);
+                    });
+                    </script>
+                    <div style="clear:both"> </div>
+                    <!-- end of code for slider -->
+  </li>
+
+  
 </ul>
   
 
