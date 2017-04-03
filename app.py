@@ -114,8 +114,8 @@ class app(base_app):
             #radius = (fnames[0])[-7:-4]
             radius = 50
             #self.cfg['meta']['rad'] = float(radius)
-            shutil.copy(self.input_dir +baseName+".off",
-                        self.work_dir + 'inputVol_0.off')        
+            shutil.copy(self.input_dir +baseName+".mha",
+                        self.work_dir + 'inputVol_0.mha')        
         self.cfg.save()
 
 
@@ -129,9 +129,9 @@ class app(base_app):
 
         # if a new experiment on the same image, clone data
         if newrun:
-             oldPath = self.work_dir + 'inputVol_0.off'
+             oldPath = self.work_dir + 'inputVol_0.mha'
              self.clone_input()
-             shutil.copy(oldPath, self.work_dir + 'inputVol_0.off')
+             shutil.copy(oldPath, self.work_dir + 'inputVol_0.mha')
 
         # save the input image as 'input_0_selection.png', the one to be used
         img = image(self.work_dir + 'input_0.png')
