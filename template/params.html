@@ -3,12 +3,30 @@
 <%include file="js/createlinkedslider.js" />
 </script>
 
-<!--
 <p>
-
-You can first ajust the parameters of the radius used for normal accumulation (<font color="blue"><i>R</i></font>).
+  Set the Frangi parameters:
 </p>
--->
+<ul> Sigma Min:
+  <li> 
+ <!-- code for slider -->
+                    <div style="float:left;padding-right:25px">
+                    <label for="sigmamin"> <font color=blue><i>sigmamin</i></font>:</label>
+                     <input type="text" style="font-family:monospace;text-align:right"
+                        size="3" id="sigmamin" name="scale" value="1.0" />
+                    </div>
+                    <div id="sigmamin_slider" name="sigmamin_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+                    <script type="text/javascript">
+                    // Turn DIV slider into a slider linked to scale
+                    $(document).ready(function() {
+                          createLinkedSlider('#sigmamin', '#sigmamin_slider', 0, 10, 0.1);
+                    });
+                    </script>
+                    <div style="clear:both"> </div>
+                    <!-- end of code for slider -->
+</li>
+
+                    
+
 
 <form action="${app.base_url + 'wait'}" method="get">
   <input type="hidden" name="key" value="${app.key}">
@@ -20,7 +38,7 @@ You can first ajust the parameters of the radius used for normal accumulation (<
 <hr />
 
 <div>
-  <img src="${app.work_url + 'input_0.png'}" alt="${}" width="300"/>
+  <img src="${app.work_url + 'input_0.png'}" alt="${}" width="400"/>
 </div>
 
 <%include file="footer.html" />
