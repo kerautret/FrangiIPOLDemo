@@ -32,6 +32,7 @@ class app(base_app):
     is_test = False       # switch to False for deployment
     commands = []
     list_commands = ""
+    nameInput = ""
     
     def __init__(self):
         """
@@ -112,12 +113,13 @@ class app(base_app):
         '''         
         self.cfg['meta']['is3d'] = True
         if self.cfg['meta']['is3d'] :
+            self.nameInput = fnames[0]
             baseName = (fnames[0])[0:-4]
             #radius = (fnames[0])[-7:-4]
             radius = 50
             #self.cfg['meta']['rad'] = float(radius)
-            shutil.copy(self.input_dir +baseName+".mha",
-                        self.work_dir + 'inputVol_0.mha')        
+            shutil.copy(self.input_dir +fnames[0],
+                        self.work_dir + fnames[0])        
         self.cfg.save()
 
 
@@ -131,9 +133,9 @@ class app(base_app):
 
         # if a new experiment on the same image, clone data
         if newrun:
-             oldPath = self.work_dir + 'inputVol_0.mha'
+             oldPath = self.work_dir + self.nameInput
              self.clone_input()
-             shutil.copy(oldPath, self.work_dir + 'inputVol_0.mha')
+             shutil.copy(oldPath, self.work_dir + self.nameInput)
 
         # save the input image as 'input_0_selection.png', the one to be used
         img = image(self.work_dir + 'input_0.png')
@@ -238,7 +240,7 @@ class app(base_app):
         ## ---------
         f = open(self.work_dir+"output.txt", "w")
         fInfo = open(self.work_dir+"info.txt", "w")
-        command_args = ['frangi', '-i' , 'inputVol_0.mha', '-o', 'res.nii', \
+        command_args = ['frangi', '-i' , self.nameInput, '-o', 'res.nii', \
                         '-m', str(float(self.cfg['param']['sigmamin'])),
                         '-M', str(float(self.cfg['param']['sigmamax'])),
                         '-s', str(int(self.cfg['param']['steps'])),
