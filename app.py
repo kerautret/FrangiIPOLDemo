@@ -248,7 +248,7 @@ class app(base_app):
         fInfo.close()
         f.close()
         f = open(self.work_dir+"commands.txt", "w")
-        f.write(self.command_args)
+        f.write(command_args)
         f.close()
 
 
