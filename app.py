@@ -31,6 +31,8 @@ class app(base_app):
     input_ext = '.png'   # input image expected extension (ie file format)
     is_test = False       # switch to False for deployment
     commands = []
+    list_commands = ""
+    
     def __init__(self):
         """
         app setup
@@ -248,11 +250,9 @@ class app(base_app):
         fInfo.close()
         f.close()
         f = open(self.work_dir+"commands.txt", "w")
-        commandsText = ""
+
         for arg in command_args:
-             commandsText += arg
-        f.write(arg)
-        f.close()
+             self.list_commands += arg
 
 
         ##  -------
