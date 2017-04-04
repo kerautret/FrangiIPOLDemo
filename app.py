@@ -239,12 +239,12 @@ class app(base_app):
         f = open(self.work_dir+"output.txt", "w")
         fInfo = open(self.work_dir+"info.txt", "w")
         command_args = ['frangi', '-i' , 'inputVol_0.mha', '-o', 'res.nii', \
-                        '-m', float(self.cfg['param']['sigmamin']),
-                        '-M', float(self.cfg['param']['sigmamax']),
-                        '-s', float(self.cfg['param']['steps']),
-                        '-a', float(self.cfg['param']['alpha']),
-                        '-b', float(self.cfg['param']['beta']),
-                        '-g', float(self.cfg['param']['gamma'])]
+                        '-m', str(float(self.cfg['param']['sigmamin'])),
+                        '-M', str(float(self.cfg['param']['sigmamax'])),
+                        '-s', str(float(self.cfg['param']['steps'])),
+                        '-a', str(float(self.cfg['param']['alpha'])),
+                        '-b', str(float(self.cfg['param']['beta'])),
+                        '-g', str(float(self.cfg['param']['gamma']))]
         p = self.run_proc(command_args, stderr=fInfo, env={'LD_LIBRARY_PATH' : self.bin_dir})
         self.wait_proc(p, timeout=120)
         fInfo.close()
@@ -253,6 +253,7 @@ class app(base_app):
 
         for arg in command_args:
              self.list_commands += arg
+
 
 
         ##  -------
