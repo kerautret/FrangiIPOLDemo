@@ -186,8 +186,8 @@ class app(base_app):
         # read the parameters
         #print self.cfg['param']
 
-        #shutil.copy(self.input_dir +self.cfg['meta']['basename']+".vol",
-        #            self.work_dir + 'inputVol_0.vol')        
+        shutil.copy(self.input_dir + self.nameInput,
+                    self.work_dir + 'inputVol_0.vol')        
         #shutil.copy(self.input_dir +self.cfg['meta']['basename']+".sdp",
         #            self.work_dir + 'inputVol_0.sdp')        
                  
@@ -240,7 +240,7 @@ class app(base_app):
         ## ---------
         f = open(self.work_dir+"output.txt", "w")
         fInfo = open(self.work_dir+"info.txt", "w")
-        command_args = ['frangi', '-i' , self.input_dir + str(self.nameInput), '-o', 'res.nii', \
+        command_args = ['frangi', '-i' , self.nameInput, '-o', 'res.nii', \
                         '-m', str(float(self.cfg['param']['sigmamin'])),
                         '-M', str(float(self.cfg['param']['sigmamax'])),
                         '-s', str(int(self.cfg['param']['steps'])),
