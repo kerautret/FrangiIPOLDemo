@@ -236,7 +236,13 @@ class app(base_app):
         ## ---------
         f = open(self.work_dir+"output.txt", "w")
         fInfo = open(self.work_dir+"info.txt", "w")
-        command_args = ['frangi', '-i' , 'inputVol_0.mha', '-o', 'res.nii']        
+        command_args = ['frangi', '-i' , 'inputVol_0.mha', '-o', 'res.nii', \
+                        '-m', str(int(self.cfg['param']['sigmamin'])),
+                        '-M', str(int(self.cfg['param']['sigmamax'])),
+                        '-s', str(int(self.cfg['param']['steps'])),
+                        '-a', str(int(self.cfg['param']['alpha'])),
+                        '-b', str(int(self.cfg['param']['beta'])),
+                        '-g', str(int(self.cfg['param']['gamma']))]
         p = self.run_proc(command_args, stderr=fInfo, env={'LD_LIBRARY_PATH' : self.bin_dir})
         self.wait_proc(p, timeout=120)
         fInfo.close()
