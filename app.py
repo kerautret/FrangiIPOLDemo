@@ -155,15 +155,20 @@ class app(base_app):
         """
 
         # save and validate the parameters
-        """
+        
         try:
-            self.cfg['param']['radius'] = kwargs['radius']
-
+            self.cfg['param']['sigmamin'] = kwargs['sigmamin']
+            self.cfg['param']['sigmamax'] = kwargs['sigmamax']
+            self.cfg['param']['steps'] = kwargs['steps']
+            self.cfg['param']['alpha'] = kwargs['alpha']
+            self.cfg['param']['beta'] = kwargs['beta']
+            self.cfg['param']['gamma'] = kwargs['gamma']
+            
             self.cfg.save()
         except ValueError:
             return self.error(errcode='badparams',
                               errmsg="The parameters must be numeric.")
-        """
+
         http.refresh(self.base_url + 'run?key=%s' % self.key)
         return self.tmpl_out("wait.html")
 
@@ -225,15 +230,42 @@ class app(base_app):
         this one needs no parameter
         """
         #radius = self.cfg['param']['radius']
-        
+
+        ##  -------
+        ## process 1: Apply Frangi
+        ## ---------
         f = open(self.work_dir+"output.txt", "w")
         fInfo = open(self.work_dir+"info.txt", "w")
-        command_args = ['/bin/sh', '-c', 'onestep.sh  ${0} ${1+"$@"}', "inputVol_0.off" + ' rsDefects']
-
+        command_args = ['frangi', '-i' , 'inputVol_0.mha', '-o res.nii']        
         p = self.run_proc(command_args, stderr=fInfo, env={'LD_LIBRARY_PATH' : self.bin_dir})
         self.wait_proc(p, timeout=120)
         fInfo.close()
         f.close()
+        ##  -------
+        ## process 2: Apply Marching Cube
+        ## ---------
+        f = open(self.work_dir+"output.txt", "w")
+        fInfo = open(self.work_dir+"info.txt", "w")
+        command_args = ['3dVolMarchingCubes', '-i' , 'res.nii', '-t 10', '-o res.off' ]        
+        p = self.run_proc(command_args, stderr=fInfo, env={'LD_LIBRARY_PATH' : self.bin_dir})
+        self.wait_proc(p, timeout=120)
+        fInfo.close()
+        f.close()
+        ##  -------
+        ## process 3: convert off to obj
+        ## ---------
+        f = open(self.work_dir+"output.txt", "w")
+        fInfo = open(self.work_dir+"info.txt", "w")
+        command_args = ['off2obj', '-i' , 'res.off', '-o res.obj', '-c' ]        
+        p = self.run_proc(command_args, stderr=fInfo, env={'LD_LIBRARY_PATH' : self.bin_dir})
+        self.wait_proc(p, timeout=120)
+        fInfo.close()
+        f.close()
+        
+        
+
+
+        
         return
 
     @cherrypy.expose
