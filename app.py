@@ -248,7 +248,10 @@ class app(base_app):
         fInfo.close()
         f.close()
         f = open(self.work_dir+"commands.txt", "w")
-        f.write(command_args)
+        commandsText = ""
+        for arg in command_args:
+             command_to_save += arg
+        f.write(arg)
         f.close()
 
 
