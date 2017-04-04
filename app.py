@@ -247,6 +247,11 @@ class app(base_app):
         self.wait_proc(p, timeout=120)
         fInfo.close()
         f.close()
+        f = open(self.work_dir+"commands.txt", "w")
+        f.write(self.command_args)
+        f.close()
+
+
         ##  -------
         ## process 2: Apply Marching Cube
         ## ---------
