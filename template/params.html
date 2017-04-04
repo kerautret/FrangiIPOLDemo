@@ -3,7 +3,9 @@
 <%include file="js/createlinkedslider.js" />
 </script>
 
-
+<form action="${app.base_url + 'wait'}" method="get">
+  <input type="hidden" name="key" value="${app.key}">
+<div class="action">
 <p>
   Set the Frangi parameters:
 </p>
@@ -142,9 +144,7 @@
   </li>
  </ul>
 
-<form action="${app.base_url + 'wait'}" method="get">
-  <input type="hidden" name="key" value="${app.key}">
-<div class="action">
+
 <input type="submit" value="run" />
 </div>
 
