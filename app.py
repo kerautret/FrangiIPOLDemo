@@ -241,7 +241,7 @@ class app(base_app):
         command_args = ['frangi', '-i' , 'inputVol_0.mha', '-o', 'res.nii', \
                         '-m', str(float(self.cfg['param']['sigmamin'])),
                         '-M', str(float(self.cfg['param']['sigmamax'])),
-                        '-s', str(float(self.cfg['param']['steps'])),
+                        '-s', str(int(self.cfg['param']['steps'])),
                         '-a', str(float(self.cfg['param']['alpha'])),
                         '-b', str(float(self.cfg['param']['beta'])),
                         '-g', str(float(self.cfg['param']['gamma']))]
