@@ -3,11 +3,6 @@
 <%include file="js/createlinkedslider.js" />
 </script>
 
-
-<form action="${app.base_url + 'wait'}" method="get">
-  <input type="hidden" name="key" value="${app.key}">
-<div class="action">
-
 <p>
   Set the Frangi parameters:
 </p>
@@ -17,11 +12,11 @@
                     <div style="float:left;padding-right:25px">
                     <label for="sigmamin"> <font color=blue><i>sigma min</i></font>:</label>
                      <input type="text" style="font-family:monospace;text-align:right"
-                        size="3" id="sigmamin" name="scale" value="1.0" />
+                        size="3" id="sigmamin" name="sigmamin" value="1.0" />
                     </div>
                     <div id="sigmamin_slider" name="sigmamin_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
                     <script type="text/javascript">
-                    // Turn DIV slider into a slider linked to scale
+                    // Turn DIV slider into a slider linked to sigmamin
                     $(document).ready(function() {
                           createLinkedSlider('#sigmamin', '#sigmamin_slider', 0, 10, 0.1);
                     });
@@ -35,7 +30,7 @@
                     <div style="float:left;padding-right:25px">
                     <label for="sigmamax"> <font color=blue><i>sigma max</i></font>:</label>
                      <input type="text" style="font-family:monospace;text-align:right"
-                        size="3" id="sigmamax" name="scale" value="5.0" />
+                        size="3" id="sigmamax" name="sigmamax" value="5.0" />
                     </div>
                     <div id="sigmamax_slider" name="sigmamax_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
                     <script type="text/javascript">
@@ -54,7 +49,7 @@
                     <div style="float:left;padding-right:25px">
                     <label for="steps"> <font color=blue><i>steps</i></font>:</label>
                      <input type="text" style="font-family:monospace;text-align:right"
-                        size="3" id="steps" name="scale" value="5" />
+                        size="3" id="steps" name="steps" value="5" />
                     </div>
                     <div id="steps_slider" name="steps_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
                     <script type="text/javascript">
@@ -73,7 +68,7 @@
                     <div style="float:left;padding-right:25px">
                     <label for="alpha"> <font color=blue><i>alpha</i></font>:</label>
                      <input type="text" style="font-family:monospace;text-align:right"
-                        size="3" id="alpha" name="scale" value="0.5" />
+                        size="3" id="alpha" name="alpha" value="0.5" />
                     </div>
                     <div id="alpha_slider" name="alpha_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
                     <script type="text/javascript">
@@ -90,7 +85,7 @@
                     <div style="float:left;padding-right:25px">
                     <label for="beta"> <font color=blue><i>beta</i></font>:</label>
                      <input type="text" style="font-family:monospace;text-align:right"
-                        size="3" id="beta" name="scale" value="1.0" />
+                        size="3" id="beta" name="beta" value="1.0" />
                     </div>
                     <div id="beta_slider" name="beta_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
                     <script type="text/javascript">
@@ -108,7 +103,7 @@
                     <div style="float:left;padding-right:25px">
                     <label for="gamma"> <font color=blue><i>gamma</i></font>:</label>
                      <input type="text" style="font-family:monospace;text-align:right"
-                        size="3" id="gamma" name="scale" value="10.0" />
+                        size="3" id="gamma" name="gamma" value="10.0" />
                     </div>
                     <div id="gamma_slider" name="gamma_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
                     <script type="text/javascript">
@@ -126,6 +121,11 @@
   
 
                     
+
+
+<form action="${app.base_url + 'wait'}" method="get">
+  <input type="hidden" name="key" value="${app.key}">
+<div class="action">
 <input type="submit" value="run" />
 </div>
 </form>
