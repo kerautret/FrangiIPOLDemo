@@ -119,7 +119,29 @@
 
   
 </ul>
-  
+
+
+<p> You can also set the threshold display parameter: </p>
+<ul>
+ <li> 
+ <!-- code for slider -->
+                    <div style="float:left;padding-right:25px">
+                    <label for="threshold"> <font color=blue><i>threshold</i></font>:</label>
+                     <input type="text" style="font-family:monospace;text-align:right"
+                        size="3" id="threshold" name="threshold" value="10.0" />
+                    </div>
+                    <div id="threshold_slider" name="threshold_slider" style="width:280px;float:left;margin-top:4px;font-size:10pt"></div>
+                    <script type="text/javascript">
+                    // Turn DIV slider into a slider linked to scale
+                    $(document).ready(function() {
+                          createLinkedSlider('#threshold', '#threshold_slider', 0, 10, 0.1);
+                    });
+                    </script>
+                    <div style="clear:both"> </div>
+                    <!-- end of code for slider -->
+  </li>
+ </ul>
+
 <form action="${app.base_url + 'wait'}" method="get">
   <input type="hidden" name="key" value="${app.key}">
 <div class="action">
