@@ -187,7 +187,7 @@ class app(base_app):
         #print self.cfg['param']
 
         shutil.copy(self.input_dir + self.nameInput,
-                    self.work_dir + 'inputVol_0.vol')        
+                    self.work_dir +  self.nameInput)        
         #shutil.copy(self.input_dir +self.cfg['meta']['basename']+".sdp",
         #            self.work_dir + 'inputVol_0.sdp')        
                  
