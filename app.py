@@ -113,8 +113,8 @@ class app(base_app):
         '''         
         self.cfg['meta']['is3d'] = True
         if self.cfg['meta']['is3d'] :
-            self.nameInput = (fnames[0])[0:-7] +"." +(fnames[0])[-7:-4]
-            baseName = 
+            self.nameInput = (fnames[0])[0:-7] + "." +(fnames[0])[-7:-4]
+            
             #radius = (fnames[0])[-7:-4]
             radius = 50
             #self.cfg['meta']['rad'] = float(radius)
