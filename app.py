@@ -103,21 +103,6 @@ class app(base_app):
 
 
 
-    def input_select_callback(self, fnames):
-        '''
-        Implement the callback for the input select to
-        process the non-standard input
-        '''         
-        self.cfg['meta']['is3d'] = True
-        if self.cfg['meta']['is3d'] :
-            baseName = (fnames[0])[0:-4]
-            #radius = (fnames[0])[-7:-4]
-            radius = 50
-            #self.cfg['meta']['rad'] = float(radius)
-            shutil.copy(self.input_dir +baseName+".mha",
-                        self.work_dir + 'inputVol_0.mha')        
-        self.cfg.save()
-
 
 
 
