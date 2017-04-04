@@ -33,7 +33,7 @@ class app(base_app):
     commands = []
     list_commands = ""
     nameInput = ""
-    
+
     def __init__(self):
         """
         app setup
@@ -113,8 +113,8 @@ class app(base_app):
         '''         
         self.cfg['meta']['is3d'] = True
         if self.cfg['meta']['is3d'] :
-            self.nameInput = fnames[0]
-            baseName = (fnames[0])[0:-4]
+            self.nameInput = (fnames[0])[0:-7] +"." +(fnames[0])[-7:-4]
+            baseName = 
             #radius = (fnames[0])[-7:-4]
             radius = 50
             #self.cfg['meta']['rad'] = float(radius)
