@@ -165,6 +165,7 @@ class app(base_app):
             self.cfg['param']['alpha'] = kwargs['alpha']
             self.cfg['param']['beta'] = kwargs['beta']
             self.cfg['param']['gamma'] = kwargs['gamma']
+            self.cfg['param']['threshold'] = kwargs['threshold']
             
             self.cfg.save()
         except ValueError:
@@ -261,11 +262,12 @@ class app(base_app):
         ## ---------
         f = open(self.work_dir+"outputMarching.txt", "w")
         fInfo = open(self.work_dir+"infoMarching.txt", "w")
-        command_args = ['3dVolMarchingCubes', '-i' , 'res.nii', '-t', '10', '-o', 'res.off' ]        
+        command_args = ['3dVolMarchingCubes', '-i' , 'res.nii', '-t', str(float(self.cfg['param']['threshold'])), '-o', 'res.off' ]        
         p = self.run_proc(command_args, stderr=fInfo, env={'LD_LIBRARY_PATH' : self.bin_dir})
         self.wait_proc(p, timeout=120)
         fInfo.close()
         f.close()
+        
         ##  -------
         ## process 3: convert off to obj
         ## ---------

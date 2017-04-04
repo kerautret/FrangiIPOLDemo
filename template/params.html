@@ -3,11 +3,6 @@
 <%include file="js/createlinkedslider.js" />
 </script>
 
-<form action="${app.base_url + 'wait'}" method="get">
-  <input type="hidden" name="key" value="${app.key}">
-<div class="action">
-<input type="submit" value="run" />
-</div>
 
 <p>
   Set the Frangi parameters:
@@ -80,7 +75,7 @@
                     <script type="text/javascript">
                     // Turn DIV slider into a slider linked to scale
                     $(document).ready(function() {
-                          createLinkedSlider('#alpha', '#alpha_slider', 1, 10, 1);
+                          createLinkedSlider('#alpha', '#alpha_slider', 0.001, 10, 0.1);
                     });
                     </script>
                     <div style="clear:both"> </div>
@@ -97,7 +92,7 @@
                     <script type="text/javascript">
                     // Turn DIV slider into a slider linked to scale
                     $(document).ready(function() {
-                          createLinkedSlider('#beta', '#beta_slider', 0, 10, 0.1);
+                          createLinkedSlider('#beta', '#beta_slider', 0.001, 10, 0.1);
                     });
                     </script>
                     <div style="clear:both"> </div>
@@ -125,6 +120,11 @@
   
 </ul>
   
+<form action="${app.base_url + 'wait'}" method="get">
+  <input type="hidden" name="key" value="${app.key}">
+<div class="action">
+<input type="submit" value="run" />
+</div>
 
                     
 
