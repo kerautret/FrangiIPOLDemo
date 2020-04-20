@@ -261,7 +261,7 @@ class app(base_app):
         ## ---------
         f = open(self.work_dir+"outputMarching.txt", "w")
         fInfo = open(self.work_dir+"infoMarching.txt", "w")
-        command_args = ['3dVolMarchingCubes', '-i' , 'res.nii', '-t', str(int(self.cfg['param']['threshold'])), '-o', 'res.off' ]        
+        command_args = ['volBoundary2obj', '-i' , 'res.nii', '-m', str(int(self.cfg['param']['threshold'])), '-o', 'res.obj', '--customDiffuse', '200', '200', '240', '255' ]        
         p = self.run_proc(command_args, stderr=fInfo, env={'LD_LIBRARY_PATH' : self.bin_dir})
         self.wait_proc(p, timeout=120)
         fInfo.close()
@@ -270,13 +270,13 @@ class app(base_app):
         ##  -------
         ## process 3: convert off to obj
         ## ---------
-        f = open(self.work_dir+"output.txt", "w")
-        fInfo = open(self.work_dir+"info.txt", "w")
-        command_args = ['off2obj', '-i' , 'res.off', '-o', 'res.obj', '-c', '-n' ]        
-        p = self.run_proc(command_args, stderr=fInfo, env={'LD_LIBRARY_PATH' : self.bin_dir})
-        self.wait_proc(p, timeout=120)
-        fInfo.close()
-        f.close()
+        #f = open(self.work_dir+"output.txt", "w")
+        #fInfo = open(self.work_dir+"info.txt", "w")
+        #command_args = ['off2obj', '-i' , 'res.off', '-o', 'res.obj', '-c', '-n' ]        
+        #p = self.run_proc(command_args, stderr=fInfo, env={'LD_LIBRARY_PATH' : self.bin_dir})
+        #self.wait_proc(p, timeout=120)
+        #fInfo.close()
+        #f.close()
         
         
 
